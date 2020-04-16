@@ -2550,17 +2550,286 @@
 # print(lottery_numbers)
 # print(random.sample(lottery_numbers, 1))#takes iterable argument first, and number of value to return.it return a list
 # print(random.sample(lottery_numbers, 6))
-import random
-import copy
-#shuffle function accept mutable object
-characters = ["Warrior", "Druid", "Hunter", "Rogue", "Mage"]
-print(random.shuffle(characters)) #its return is none
-print(characters) #it as shuffled the list
-clone = characters[:]
-clone = characters.copy()
-clone = copy.copy(characters)
-print(random.shuffle(clone)) #its return is none
-print(clone)
+# import random
+# import copy
+# #shuffle function accept mutable object
+# characters = ["Warrior", "Druid", "Hunter", "Rogue", "Mage"]
+# print(random.shuffle(characters)) #its return is none
+# print(characters) #it as shuffled the list
+# clone = characters[:]
+# clone = characters.copy()
+# clone = copy.copy(characters)
+# print(random.shuffle(clone)) #its return is none
+# print(clone)
+#Module 29
+#Testing is writing code that validates the functionality of other code
+#Tests prevent regression. A regression is when a feature that used to work no longer does
+#Test suite- collection of tests that target relatef functionality
+#test should be isolated and independent
+#Code Coverage or test coverage refers to the percentage of codebase that is tested by tests
+#assert is a statement that validate something is true. asert that a boolean is true
+# def add(x, y):
+#     assert isinstance(x, int) and isinstance(y, int), "Both Arguments Must Be Integers" #returns true or false
+#     return x + y
+# print(add(3, 5))
+# # print(add(3, "5"))
+# def sum_of_list(numbers):
+#     """Return the sum of all numbers in a list.
+#     >>> sum_of_list([1, 2, 3])
+#     6
+#     >>> sum_of_list([5, 8, 13])
+#     26 #try use 25
+#     """
+#     total = 0
+#     for num in numbers:
+#         total += num
+#     return total #try using num
+# #TDD- Test Driven Development(Test Drive Our Code, We write test first)
+# if __name__ == "__main__":
+#     import doctest
+#     doctest.testmod()
+# #Goal of test is that program do not fail and your code work as expected
+#unit test is a test that checks a single unit
+# import unittest
+# unittest.TestCase
+# class TestStringMethods(unittest.TestCase):
+#     def test_split(self):#must begin with test
+#         self.assertEqual("a-b-c".split("-"), ["a", "b", "c"])
+
+#         self.assertEqual("d+e+f".split("+"), ["d", "e", "f"])
+#     def test_count(self):
+#         self.assertEqual("beautiful".count("u"), 2) #try replace u with z
+# if __name__ == "__main__":
+#     unittest.main()
+#the dot apper is a single task and that its succesful i.e instance method
+#F means failure
+#assert equal validates two args and verify they are equal
+#first arg is what to execute, second is the result expected
+#when it green it means everything is okay
+#assert makes a program crash when it sees an error
+#but unit testing continue to run the program
+# import unittest
+# class TestStringMethods(unittest.TestCase):
+#     def test_split(self):#must begin with test
+#         self.assertEqual("a-b-c".split("-"), ["a", "b", "c"])
+
+#         self.assertEqual("d+e+f".split("+"), ["d", "e", "g"])
+#     def test_count(self):
+#         self.assertEqual("beautiful".count("u"), 2) #try replace u with z
+# if __name__ == "__main__":
+#     unittest.main()
+# import unittest
+
+# def multiply(a, b):
+#     total = 0
+#     for _ in range(a):
+#         total += b
+#     return total
+# class MultiplyTestCase(unittest.TestCase):
+#     def test_multiply(self):
+#         self.assertEqual(multiply(3, 4), 12)
+# if __name__=="__main__":
+#     unittest.main()
+# def multiply(a, b):
+#     return a * b
+# class MultiplyTestCase(unittest.TestCase):
+#     def test_multiply(self):
+#         self.assertEqual(multiply(3, 4), 12)
+# if __name__=="__main__":
+#     unittest.main()
+# import unittest
+# #skip test is done during development
+# class TestSkippingStuff(unittest.TestCase):
+#     def test_addition(self):
+#         self.assertEqual(1 + 1, 2)
+#     def test_subtraction(self):
+#         self.assertEqual(10 - 5, 5)
+#     @unittest.skip("To be implemented later")
+#     def test_multiplication(self):
+#         pass
+
+# if __name__=="__main__":
+#     unittest.main()
+#s represent skip
+
+# import unittest
+
+# def copy_and_add_element(values, element):
+#     # copy = values[:]
+#     copy = values
+#     copy.append(element)
+#     return copy
+
+# class TestInequality(unittest.TestCase):
+#     def test_inequality(self):
+#         self.assertNotEqual(1, 2)
+#         self.assertNotEqual("True", False)
+#         self.assertNotEqual("Hello", "hello")
+#         self.assertNotEqual([1, 2], [2, 1])
+
+#     def test_copy_and_add_element(self):
+#         values = [1, 2, 3]
+#         result = copy_and_add_element(values, 4)
+#         self.assertEqual(result, [1,2,3,4])
+#         self.assertNotEqual(
+#             values,
+#             [1, 2, 3, 4],
+#             "the copy function is mutating the input"
+#         )
+
+# import unittest
+
+# class IdentityTests(unittest.TestCase):
+#     def test_identicality(self):
+#         a = [1, 2, 3]
+#         b = a
+#         c = [1, 2, 3]
+#         self.assertEqual(a, b)
+#         self.assertEqual(a, c)
+#         self.assertIs(a, b)
+#         # self.assertIs(a, c)
+#         self.assertIsNot(a, c)
+#         self.assertIsNot(b, c)
+#truthy or falsy
+# class TruthinessAndFalsinessTests(unittest.TestCase):
+#     def test_truthiness(self):
+#         # self.assertEqual(3<5, True)
+#         self.assertTrue(3 < 5)
+#         self.assertTrue(1)
+#         self.assertTrue("hello")
+#         self.assertTrue(["a"])
+#         self.assertTrue({ "b": 5 })
+#     def test_falsiness(self):
+#         self.assertFalse(False)
+#         self.assertFalse(0)
+#         self.assertFalse("")
+#         self.assertFalse([])
+#         self.assertFalse({})
+
+# def explicit_return_sum(a, b):
+#     return a + b
+# def implicit_return_sum(a, b):
+#     print(a + b)
+# class TestNone(unittest.TestCase):
+#     def test_sum_functions(self):
+#         self.assertIsNone(implicit_return_sum(3, 5))
+#         self.assertIsNotNone(explicit_return_sum(10, 2))
+
+# import unittest
+
+# class InclusionTests(unittest.TestCase):
+#     def test_inclusion(self):
+        # self.assertTrue("k" in "king")
+    #     self.assertIn("k", "king")
+    #     self.assertIn(1, [1, 2, 3])
+    #     self.assertIn(5, (6, 5, 7))
+    #     self.assertIn("a", {"a": 1, "b":2})
+    #     self.assertIn("a", {"a": 1, "b": 2}.keys())
+    #     self.assertIn(2, {"a":1, "b": 2}.values())
+    #     self.assertIn(55, range(50, 59))
+
+    # def test_non_inclusion(self):
+    #     self.assertNotIn("w", "king")
+    #     self.assertNotIn(10, [1, 2, 3])
+    #     self.assertNotIn(15, (6, 5, 7))
+    #     self.assertNotIn("c", {"a": 1, "b":2})
+    #     self.assertNotIn("c", {"a": 1, "b":2}.keys())
+    #     self.assertNotIn(5, {"a":1, "b": 2}.values())
+    #     self.assertNotIn(65, range(50, 59))
+# import unittest
+
+# class ObjectTypeTests(unittest.TestCase):
+#     # pass
+#     def test_is_instance(self):
+#         self.assertIsInstance(1, int)
+#         self.assertIsInstance(8.765, float)
+#         self.assertIsInstance([], list)
+#         self.assertIsInstance({"a": 1}, dict)
+
+#         # self.assertIsInstance("a", list)
+#     def test_not_is_instance(self):
+#         self.assertNotIsInstance(5, list)
+#         self.assertNotIsInstance(5, float)
+#         self.assertNotIsInstance(5, set)
+#         self.assertNotIsInstance(5, dict)
+            
+#         # self.assertNotIsInstance(5, int)
+# import unittest
+
+# def divide(x, y):
+#     if y == 0:
+#         raise ZeroDivisionError
+#     return x / y
+# class DivideTestCase(unittest.TestCase):
+#     def test_divide(self):
+#         self.assertRaises(ZeroDivisionError, divide, 10, 0)#if the arg dosent raise the error it will raise an error it raises an error  #it takes error as first args, function as second arg, and others are parameters for the function
+
+#     def test_divide_another_way(self):
+#         with self.assertRaises(ZeroDivisionError):
+#             divide(10, 0)    
+#test fixture is a piece of code that constructs and configures an object or system under test
+# import unittest
+
+# class Address():
+#     def __init__(self, city, state):
+#         self.city = city
+#         self.state = state
+
+# class Owner():
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+# class Restaurant():
+#     def __init__(self, address, owner):
+#         self.address = address
+#         self.owner = owner
+#     @property
+#     def owner_age(self):
+#         return self.owner.age
+#     def summary(self):
+#         return f"The restaurant is owned by {self.owner.name} and is located at {self.address.city}"
+# # h = Restaurant(Address("ikirun", "osun"), Owner("mic", 19))
+# # print(Restaurant(Address("ikirun", "osun"), Owner("mic", 19)).summary())
+# # print(h.summary()) 
+# class TestRestaurant(unittest.TestCase):
+#     def setUp(self): #this method must be name like this.#set up will run before any instance method runs
+#         print("This will run before each test")
+#         address = Address(city = "New york", state = "New York")
+#         owner = Owner(name = "Jackie", age = 60)
+#         self.golden_palace = Restaurant(address, owner)
+    
+#     def tearDown(self): #this have to be name like this# will run after each instance method
+#         print("This will run after each test")
+    
+#     def test_owner_age(self):
+#         self.assertEqual(self.golden_palace.owner_age, 60)
+#     def test_summary(self):
+#         self.assertEqual(
+#             self.golden_palace.summary(),
+#             "The restaurant is owned by Jackie and is located at New york"
+#         )
 
 
+# import unittest
 
+# class TestOperations(unittest.TestCase):
+
+#     @classmethod
+#     def setUpClass(cls):
+#         print("This will run ONCE before the test suite that is class starts starts")
+#     def setUp(self):
+#         print("This will run before EACH test")
+#     def tearDown(self):
+#         print("This will run after EACH test")
+#     @classmethod
+#     def tearDownClass(self):
+#         print("This will run ONCE after the test suite that is class  finishes")
+    
+#     def test_stuff(self):
+#         self.assertEqual(1, 1)
+#     def test_more_stuf(self):
+#         self.assertEqual([], [])
+    
+
+# if __name__== "__main__":
+#     unittest.main()
